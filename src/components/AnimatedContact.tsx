@@ -17,7 +17,7 @@ export default function AnimatedContact() {
             Get In Touch
           </h2>
           <p className="text-lg text-gray-600 dark:text-gray-300">
-            Have a project in mind? Let's discuss it!
+            Have a project in mind? Let&apos;s discuss it!
           </p>
         </motion.div>
         <motion.div

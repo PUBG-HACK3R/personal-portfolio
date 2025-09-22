@@ -71,7 +71,7 @@ export default function TestPage() {
             HTML Classes: {typeof window !== 'undefined' ? document.documentElement.className : 'Loading...'}
           </p>
           <p className="text-sm text-gray-600 dark:text-gray-300">
-            Has 'dark' class: {typeof window !== 'undefined' ? document.documentElement.className.includes('dark') ? 'Yes' : 'No' : 'Loading...'}
+            Has &apos;dark&apos; class: {typeof window !== &apos;undefined&apos; ? document.documentElement.className.includes(&apos;dark&apos;) ? &apos;Yes&apos; : &apos;No&apos; : &apos;Loading...&apos;}
           </p>
         </div>
       </div>

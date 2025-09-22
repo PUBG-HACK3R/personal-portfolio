@@ -1,4 +1,3 @@
-import Image from "next/image";
 import AnimatedBackground from "@/components/AnimatedBackground";
 import AnimatedHero from "@/components/AnimatedHero";
 import AnimatedSkills from "@/components/AnimatedSkills";
@@ -21,7 +20,7 @@ export default function Home() {
               About Me
             </h2>
             <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-              I'm a passionate developer with 1+ years of experience building web applications
+              I&apos;m a passionate developer with 1+ years of experience building web applications
             </p>
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -32,7 +31,7 @@ export default function Home() {
                 through clean, efficient code and beautiful user interfaces.
               </p>
               <p className="text-gray-600 dark:text-gray-300 mb-8 text-lg leading-relaxed">
-                When I'm not coding, you can find me exploring new technologies, contributing to open-source 
+                When I&apos;m not coding, you can find me exploring new technologies, contributing to open-source 
                 projects, or sharing knowledge with the developer community.
               </p>
               <div className="flex flex-wrap gap-4">
@@ -52,9 +51,9 @@ export default function Home() {
             </div>
             <div className="relative">
               <div className="bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg p-8 text-white">
-                <h3 className="text-2xl font-bold mb-4">Let's work together!</h3>
+                <h3 className="text-2xl font-bold mb-4">Let&apos;s work together!</h3>
                 <p className="mb-6">
-                  I'm always interested in new opportunities and exciting projects.
+                  I&apos;m always interested in new opportunities and exciting projects.
                 </p>
                 <a
                   href="#contact"
