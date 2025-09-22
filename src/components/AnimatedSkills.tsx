@@ -37,7 +37,7 @@ export default function AnimatedSkills() {
       opacity: 1,
       transition: {
         duration: 0.6,
-        ease: "easeOut",
+        ease: "easeOut" as const,
       },
     },
   };
@@ -48,7 +48,7 @@ export default function AnimatedSkills() {
       width: `${level}%`,
       transition: {
         duration: 1.5,
-        ease: "easeOut",
+        ease: "easeOut" as const,
         delay: 0.5,
       },
     }),
