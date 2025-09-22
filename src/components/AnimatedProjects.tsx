@@ -123,7 +123,7 @@ export default function AnimatedProjects() {
             <motion.div
               className="w-20 h-20 mx-auto mb-6 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center"
               animate={{ rotate: 360 }}
-              transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+              transition={{ duration: 3, repeat: Infinity, ease: "linear" as const }}
             >
               <span className="text-3xl">🚀</span>
             </motion.div>

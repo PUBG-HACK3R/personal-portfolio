@@ -25,7 +25,7 @@ export default function AnimatedBackground() {
           transition={{
             duration: Math.random() * 10 + 10,
             repeat: Infinity,
-            ease: "linear",
+            ease: "linear" as const,
           }}
         />
       ))}
@@ -48,7 +48,7 @@ export default function AnimatedBackground() {
             duration: Math.random() * 3 + 2,
             repeat: Infinity,
             delay: Math.random() * 2,
-            ease: "easeInOut",
+            ease: "easeInOut" as const,
           }}
         />
       ))}
