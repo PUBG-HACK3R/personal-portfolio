@@ -53,7 +53,7 @@ export default function Footer() {
             </div>
             <p className="text-gray-300 text-sm leading-relaxed max-w-md">
               Full Stack Developer passionate about creating amazing digital experiences with modern technologies. 
-              Let's build something incredible together.
+              Let&apos;s build something incredible together.
             </p>
             <div className="mt-6 flex space-x-4">
               <motion.a

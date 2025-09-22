@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 export default function AnimatedHero() {
   const containerVariants = {
@@ -54,9 +55,11 @@ export default function AnimatedHero() {
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.3 }}
             >
-              <img
+              <Image
                 src="/adnan-photo.jpg"
                 alt="Adnan Khan"
+                width={192}
+                height={192}
                 className="w-full h-full object-cover object-center scale-110"
                 onError={(e) => {
                   // Fallback to initials if image doesn't load
@@ -77,7 +80,7 @@ export default function AnimatedHero() {
             className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6"
             variants={itemVariants}
           >
-            Hi, I'm{' '}
+            Hi, I&apos;m{' '}
             <motion.span
               className="text-blue-600 dark:text-blue-400"
               whileHover={{ scale: 1.05 }}

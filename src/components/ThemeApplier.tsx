@@ -10,7 +10,9 @@ export default function ThemeApplier() {
         const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
         const isDark = theme ? theme === 'dark' : prefersDark;
         document.documentElement.classList.toggle('dark', isDark);
-        document.body && document.body.classList.toggle('dark', isDark);
+        if (document.body) {
+          document.body.classList.toggle('dark', isDark);
+        }
       } catch {}
     };
 

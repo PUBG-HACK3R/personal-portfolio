@@ -79,7 +79,7 @@ export default function AnimatedSkills() {
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
         >
-          {skills.map((skill, index) => (
+          {skills.map((skill) => (
             <motion.div
               key={skill.name}
               className="text-center group"
