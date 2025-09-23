@@ -3,8 +3,21 @@ import AnimatedHero from "@/components/AnimatedHero";
 import AnimatedSkills from "@/components/AnimatedSkills";
 import AnimatedProjects from "@/components/AnimatedProjects";
 import AnimatedContact from "@/components/AnimatedContact";
+import MaintenanceMode from "@/components/MaintenanceMode";
+import { MAINTENANCE_CONFIG } from "@/config/maintenance";
 
 export default function Home() {
+  // Check if maintenance mode is enabled using config file
+  const isMaintenanceMode = MAINTENANCE_CONFIG.enabled;
+  
+  // Debug: Log the maintenance config (remove this after testing)
+  console.log('MAINTENANCE_CONFIG:', MAINTENANCE_CONFIG);
+  console.log('isMaintenanceMode:', isMaintenanceMode);
+
+  // If maintenance mode is enabled, show maintenance page
+  if (isMaintenanceMode) {
+    return <MaintenanceMode />;
+  }
   return (
     <div className="min-h-screen">
       <AnimatedBackground />
