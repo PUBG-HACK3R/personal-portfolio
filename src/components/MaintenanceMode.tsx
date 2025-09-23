@@ -1,13 +1,34 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { MAINTENANCE_CONFIG } from '@/config/maintenance';
 
 export default function MaintenanceMode() {
   const [currentTime, setCurrentTime] = useState(new Date());
+  const [timeRemaining, setTimeRemaining] = useState({
+    hours: 0,
+    minutes: 0,
+    seconds: 0
+  });
 
   useEffect(() => {
     const timer = setInterval(() => {
+      const now = new Date().getTime();
       setCurrentTime(new Date());
+      
+      // Calculate countdown
+      const endTime = MAINTENANCE_CONFIG.startTime + (MAINTENANCE_CONFIG.countdownHours * 60 * 60 * 1000);
+      const timeDiff = endTime - now;
+      
+      if (timeDiff > 0) {
+        const hours = Math.floor(timeDiff / (1000 * 60 * 60));
+        const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
+        
+        setTimeRemaining({ hours, minutes, seconds });
+      } else {
+        setTimeRemaining({ hours: 0, minutes: 0, seconds: 0 });
+      }
     }, 1000);
 
     return () => clearInterval(timer);
@@ -33,6 +54,25 @@ export default function MaintenanceMode() {
         <p className="text-xl md:text-2xl text-blue-100 mb-8 leading-relaxed">
           We&apos;re currently updating our portfolio to bring you an even better experience.
         </p>
+
+        {/* Countdown Timer */}
+        <div className="mb-8">
+          <h2 className="text-2xl font-bold text-white mb-4">Estimated Time Remaining</h2>
+          <div className="flex justify-center space-x-4 md:space-x-8">
+            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20 min-w-[80px]">
+              <div className="text-3xl md:text-4xl font-bold text-white">{timeRemaining.hours.toString().padStart(2, '0')}</div>
+              <div className="text-sm text-blue-200 uppercase tracking-wide">Hours</div>
+            </div>
+            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20 min-w-[80px]">
+              <div className="text-3xl md:text-4xl font-bold text-white">{timeRemaining.minutes.toString().padStart(2, '0')}</div>
+              <div className="text-sm text-blue-200 uppercase tracking-wide">Minutes</div>
+            </div>
+            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20 min-w-[80px]">
+              <div className="text-3xl md:text-4xl font-bold text-white">{timeRemaining.seconds.toString().padStart(2, '0')}</div>
+              <div className="text-sm text-blue-200 uppercase tracking-wide">Seconds</div>
+            </div>
+          </div>
+        </div>
 
         {/* Status message */}
         <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 mb-8 border border-white/20">
