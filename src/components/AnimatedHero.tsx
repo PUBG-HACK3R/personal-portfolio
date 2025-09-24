@@ -41,12 +41,11 @@ export default function AnimatedHero() {
 
   const floatingVariants = {
     floating: {
-      y: [-8, 8, -8],
-      rotate: [-2, 2, -2],
+      y: [-4, 4, -4],
       transition: {
-        duration: 4,
+        duration: 6,
         repeat: Infinity,
-        ease: "easeInOut" as const,
+        ease: "linear" as const,
       },
     },
   };
@@ -63,52 +62,45 @@ export default function AnimatedHero() {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 dark:from-gray-900 dark:via-slate-900 dark:to-indigo-950">
-      {/* Animated Background Elements */}
+      {/* Simplified Background Elements - Reduced for performance */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
-          className="absolute -top-40 -right-40 w-80 h-80 bg-blue-400/20 rounded-full blur-3xl"
-          animate={{
-            x: mousePosition.x * 0.02,
-            y: mousePosition.y * 0.02,
-          }}
-          transition={{ type: "spring", stiffness: 50, damping: 30 }}
-        />
-        <motion.div
-          className="absolute -bottom-40 -left-40 w-80 h-80 bg-purple-400/20 rounded-full blur-3xl"
-          animate={{
-            x: mousePosition.x * -0.02,
-            y: mousePosition.y * -0.02,
-          }}
-          transition={{ type: "spring", stiffness: 50, damping: 30 }}
-        />
-        <motion.div
-          className="absolute top-1/2 left-1/2 w-96 h-96 bg-indigo-400/10 rounded-full blur-3xl"
+          className="absolute -top-40 -right-40 w-80 h-80 bg-blue-400/10 rounded-full blur-3xl hidden md:block"
           animate={{
             x: mousePosition.x * 0.01,
             y: mousePosition.y * 0.01,
           }}
-          transition={{ type: "spring", stiffness: 30, damping: 30 }}
+          transition={{ type: "tween", duration: 0.8, ease: "easeOut" }}
+        />
+        <motion.div
+          className="absolute -bottom-40 -left-40 w-80 h-80 bg-purple-400/10 rounded-full blur-3xl hidden md:block"
+          animate={{
+            x: mousePosition.x * -0.01,
+            y: mousePosition.y * -0.01,
+          }}
+          transition={{ type: "tween", duration: 0.8, ease: "easeOut" }}
         />
       </div>
 
-      {/* Floating Particles */}
-      <div className="absolute inset-0">
-        {[...Array(20)].map((_, i) => (
+      {/* Reduced Floating Particles - Only 8 for better performance */}
+      <div className="absolute inset-0 hidden md:block">
+        {[...Array(8)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute w-2 h-2 bg-blue-400/30 rounded-full"
+            className="absolute w-2 h-2 bg-blue-400/20 rounded-full"
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
             }}
             animate={{
-              y: [-20, 20, -20],
-              opacity: [0.3, 0.8, 0.3],
+              y: [-10, 10, -10],
+              opacity: [0.2, 0.5, 0.2],
             }}
             transition={{
-              duration: 3 + Math.random() * 2,
+              duration: 4 + Math.random() * 2,
               repeat: Infinity,
               delay: Math.random() * 2,
+              ease: "linear",
             }}
           />
         ))}
@@ -255,18 +247,14 @@ export default function AnimatedHero() {
             </motion.a>
           </motion.div>
 
-          {/* Scroll Indicator */}
+          {/* Simplified Scroll Indicator */}
           <motion.div
-            className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-            animate={{ y: [0, 10, 0] }}
-            transition={{ duration: 2, repeat: Infinity }}
+            className="absolute bottom-8 left-1/2 transform -translate-x-1/2 hidden md:block"
+            animate={{ y: [0, 8, 0] }}
+            transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
           >
             <div className="w-6 h-10 border-2 border-gray-500 dark:border-gray-500 rounded-full flex justify-center">
-              <motion.div
-                className="w-1 h-3 bg-gray-600 dark:bg-gray-400 rounded-full mt-2"
-                animate={{ opacity: [0.3, 1, 0.3] }}
-                transition={{ duration: 2, repeat: Infinity }}
-              />
+              <div className="w-1 h-3 bg-gray-600 dark:bg-gray-400 rounded-full mt-2 opacity-70" />
             </div>
           </motion.div>
         </div>

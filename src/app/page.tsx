@@ -191,7 +191,14 @@ export default function Home() {
                     side: 'left'
                   }
                 ].map((item, index) => (
-                  <div key={index} className={`flex items-center ${item.side === 'left' ? 'flex-row' : 'flex-row-reverse'}`}>
+                  <motion.div 
+                    key={index} 
+                    className={`flex items-center ${item.side === 'left' ? 'flex-row' : 'flex-row-reverse'}`}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    viewport={{ once: true }}
+                  >
                     <div className={`w-5/12 ${item.side === 'left' ? 'pr-8 text-right' : 'pl-8 text-left'}`}>
                       <div className="bg-white/60 dark:bg-gray-800/60 backdrop-blur-lg rounded-2xl p-6 border border-gray-200/50 dark:border-gray-700/50 shadow-xl">
                         <div className="text-sm font-semibold text-blue-600 dark:text-blue-400 mb-1">{item.year}</div>
@@ -208,7 +215,7 @@ export default function Home() {
                     </div>
                     
                     <div className="w-5/12"></div>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
             </div>

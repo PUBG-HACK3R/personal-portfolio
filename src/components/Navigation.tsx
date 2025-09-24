@@ -37,34 +37,44 @@ export default function Navigation() {
   };
 
   useEffect(() => {
+    let ticking = false;
+    
     const handleScroll = () => {
-      const scrollY = window.scrollY;
-      const documentHeight = document.documentElement.scrollHeight - window.innerHeight;
-      
-      setScrolled(scrollY > 20);
-      setShowScrollTop(scrollY > 500);
-      setScrollProgress((scrollY / documentHeight) * 100);
-      
-      // Update active section based on scroll position
-      const sections = ['home', 'about', 'projects', 'contact'];
-      const currentSection = sections.find(section => {
-        const element = document.getElementById(section);
-        if (element) {
-          const rect = element.getBoundingClientRect();
-          return rect.top <= 100 && rect.bottom >= 100;
-        }
-        return false;
-      });
-      
-      if (currentSection) {
-        setActiveSection(currentSection);
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          const scrolled = window.scrollY;
+          const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+          const progress = (scrolled / maxScroll) * 100;
+          
+          setScrollProgress(progress);
+          setShowScrollTop(scrolled > 300);
+          
+          // Update active section based on scroll position (throttled)
+          const sections = ['home', 'about', 'skills', 'projects', 'contact'];
+          const currentSection = sections.find(section => {
+            const element = document.getElementById(section);
+            if (element) {
+              const rect = element.getBoundingClientRect();
+              return rect.top <= 100 && rect.bottom >= 100;
+            }
+            return false;
+          });
+          
+          if (currentSection && currentSection !== activeSection) {
+            setActiveSection(currentSection);
+          }
+          
+          ticking = false;
+        });
+        ticking = true;
       }
     };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll(); // Call once to set initial state
     
-    window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Initial check
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [activeSection]);
 
   return (
     <motion.nav 
