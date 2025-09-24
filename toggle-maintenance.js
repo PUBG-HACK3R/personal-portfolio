@@ -15,7 +15,10 @@ if (isCurrentlyEnabled) {
   console.log('✅ Maintenance mode DISABLED - Portfolio is now LIVE');
 } else {
   configContent = configContent.replace('enabled: false', 'enabled: true');
-  console.log('🔧 Maintenance mode ENABLED - Showing maintenance page');
+  // Update the start time to current time when enabling maintenance
+  const currentTime = new Date().getTime();
+  configContent = configContent.replace(/startTime: \d+/, `startTime: ${currentTime}`);
+  console.log('🔧 Maintenance mode ENABLED - Showing maintenance page with 24-hour timer');
 }
 
 // Write back to file

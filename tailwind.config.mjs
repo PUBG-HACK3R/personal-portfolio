@@ -17,6 +17,7 @@ export default {
         foreground: 'var(--foreground)',
       },
       animation: {
+        'spin-slow': 'spin 3s linear infinite',
         'fade-in': 'fadeIn 0.6s ease-out',
         'fade-in-up': 'fadeInUp 0.6s ease-out',
         'float': 'float 3s ease-in-out infinite',

@@ -4,7 +4,7 @@
 // false = maintenance mode OFF (shows normal portfolio)
 
 export const MAINTENANCE_CONFIG = {
-  enabled: true, // Change this to false to disable maintenance mode
+  enabled: false, // Maintenance mode is currently disabled
   message: "We're currently updating our portfolio to bring you an even better experience.",
   estimatedTime: "We'll be back online shortly with exciting updates!",
   // Timer configuration (24 hours from now)

@@ -37,12 +37,69 @@ export default function MaintenanceMode() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-900 via-purple-900 to-indigo-900 flex items-center justify-center px-4">
       <div className="max-w-2xl mx-auto text-center">
-        {/* Animated maintenance icon */}
+        {/* Animated Next.js logo */}
         <div className="mb-8 relative">
-          <div className="w-32 h-32 mx-auto bg-white/10 rounded-full flex items-center justify-center backdrop-blur-sm border border-white/20">
-            <div className="w-16 h-16 border-4 border-white/30 border-t-white rounded-full animate-spin"></div>
+          <div className="w-32 h-32 mx-auto flex items-center justify-center">
+            <div className="relative w-24 h-24">
+              <svg
+                className="w-full h-full animate-spin-slow"
+                viewBox="0 0 180 180"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <mask
+                  id="mask0_408_134"
+                  style={{ maskType: 'alpha' }}
+                  maskUnits="userSpaceOnUse"
+                  x="0"
+                  y="0"
+                  width="180"
+                  height="180"
+                >
+                  <circle cx="90" cy="90" r="90" fill="#000" />
+                </mask>
+                <g mask="url(#mask0_408_134)">
+                  <circle cx="90" cy="90" r="90" fill="#000" />
+                  <path
+                    d="M149.508 157.52L69.142 54H54V125.97H66.1136V69.3836L139.999 164.845C143.333 161.614 146.509 158.14 149.508 154.442V157.52Z"
+                    fill="url(#paint0_linear_408_134)"
+                  />
+                  <rect
+                    x="115"
+                    y="54"
+                    width="12"
+                    height="72"
+                    fill="url(#paint1_linear_408_134)"
+                  />
+                </g>
+                <defs>
+                  <linearGradient
+                    id="paint0_linear_408_134"
+                    x1="109"
+                    y1="116.5"
+                    x2="144.5"
+                    y2="160.5"
+                    gradientUnits="userSpaceOnUse"
+                  >
+                    <stop stopColor="#fff" />
+                    <stop offset="1" stopColor="#fff" stopOpacity="0" />
+                  </linearGradient>
+                  <linearGradient
+                    id="paint1_linear_408_134"
+                    x1="121"
+                    y1="54"
+                    x2="120.799"
+                    y2="106.875"
+                    gradientUnits="userSpaceOnUse"
+                  >
+                    <stop stopColor="#fff" />
+                    <stop offset="1" stopColor="#fff" stopOpacity="0" />
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
           </div>
-          <div className="absolute inset-0 w-32 h-32 mx-auto bg-gradient-to-r from-blue-400 to-purple-400 rounded-full opacity-20 animate-pulse"></div>
+          <div className="absolute inset-0 w-32 h-32 mx-auto bg-gradient-to-r from-blue-400 to-purple-400 rounded-full opacity-20 animate-pulse blur-xl"></div>
         </div>
 
         {/* Main heading */}
