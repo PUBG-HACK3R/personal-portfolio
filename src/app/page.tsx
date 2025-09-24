@@ -2,6 +2,7 @@ import AnimatedHero from "@/components/AnimatedHero";
 import AnimatedSkills from "@/components/AnimatedSkills";
 import AnimatedProjects from "@/components/AnimatedProjects";
 import AnimatedContact from "@/components/AnimatedContact";
+import { motion } from "framer-motion";
 import MaintenanceMode from "@/components/MaintenanceMode";
 import { MAINTENANCE_CONFIG } from "@/config/maintenance";
 
