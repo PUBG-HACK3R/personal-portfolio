@@ -122,8 +122,8 @@ export default function AnimatedContact() {
                   </div>
                   <div>
                     <p className="text-sm text-gray-500 dark:text-gray-400">Phone</p>
-                    <a href="tel:+1234567890" className="text-gray-900 dark:text-white font-medium hover:text-green-600 dark:hover:text-green-400 transition-colors">
-                      +1 (234) 567-890
+                    <a href="tel:+923440787723" className="text-gray-900 dark:text-white font-medium hover:text-green-600 dark:hover:text-green-400 transition-colors">
+                      +92-3440787723
                     </a>
                   </div>
                 </div>
@@ -135,7 +135,7 @@ export default function AnimatedContact() {
                   <div>
                     <p className="text-sm text-gray-500 dark:text-gray-400">Location</p>
                     <p className="text-gray-900 dark:text-white font-medium">
-                      Your City, Country
+                      Mingora, Pakistan
                     </p>
                   </div>
                 </div>
