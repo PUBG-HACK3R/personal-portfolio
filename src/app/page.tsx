@@ -1,3 +1,5 @@
+'use client';
+
 import AnimatedHero from "@/components/AnimatedHero";
 import AnimatedSkills from "@/components/AnimatedSkills";
 import AnimatedProjects from "@/components/AnimatedProjects";
